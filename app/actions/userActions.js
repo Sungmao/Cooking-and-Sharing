@@ -12,6 +12,13 @@ export function changeInputTitle(newtitle) {
   }
 }
 
+export function changeInputContent(newContent) {
+  return {
+    type: 'CHANGE_INPUT_CONTENT',
+    payload: newContent
+  }
+}
+
 export function submitName() {
   return {
     type: 'CHANGE_USER'
@@ -21,5 +28,12 @@ export function submitName() {
 export function submitTitle() {
   return {
     type: 'CHANGE_TITLE'
+  }
+}
+
+
+export function submitContent() {
+  return {
+    type: 'CHANGE_CONTENT'
   }
 }

@@ -2,7 +2,9 @@ export default function reducer(state={
     user: '',
     inputName: '',
     newtitle: '',
-    inputTitle: ''
+    inputTitle: '',
+    newContent: '',
+    inputContent: ''
   }, action) {
 
     switch (action.type) {
@@ -14,6 +16,10 @@ export default function reducer(state={
         return {...state, newtitle: state.inputTitle, inputTitle: ''}
       case 'CHANGE_INPUT_TITLE':
         return {...state, inputTitle: action.payload}
+      case 'CHANGE_CONTENT':
+        return {...state, newContent: state.inputContent, inputContent: ''}
+      case 'CHANGE_INPUT_CONTENT':
+        return {...state, inputContent: action.payload}
 
 
 
