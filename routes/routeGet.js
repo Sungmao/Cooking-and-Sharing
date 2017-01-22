@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 require('mongoose').Schema.ObjectId;
 // var id = new mongoose.Types.ObjectId(stringId);
 
-router.get('/', (req, res) => {
+router.get('/dataGets', (req, res) => {
     UserPosts.find({}, (err, post) => {
         if(err)throw err;
         else {

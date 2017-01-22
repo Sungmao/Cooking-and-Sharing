@@ -32,10 +32,30 @@ export default class Welcome extends React.Component {
     this.handleContentChange = this.handleContentChange.bind(this)
     this.submitName = this.submitName.bind(this)
 
+    this.dataDb = {
+            posts:[],
+            comments: [],
+            // date: []
+        }
+
 
   }
 
-  
+
+
+  componentDidMount() {
+     axios.get('/dataGet/dataGets').then((res) => {
+        // title: this.props.inputTitle,
+        // content: this.props.inputContent,
+        // comment: "DidMount."
+        // this.setState({posts: resDb.data.posts});
+        console.log("-------------------")
+        console.log("mount check:")
+        console.log(res.data)
+        console.log("-------------------")
+    });
+    }
+    
   handleTitleChange(event) {
     this.props.dispatch(changeInputTitle(event.target.value))
   }

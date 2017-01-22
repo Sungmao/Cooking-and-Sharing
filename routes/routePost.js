@@ -7,6 +7,7 @@ router.post('/dataPosts', (req, res) => {
     UserPosts.create({
         title: req.body.title,
         content: req.body.content,
+        comment: ""
     }).then(() => {
         res.json({success:true});
     }).catch((err) => {
