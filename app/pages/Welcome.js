@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from 'axios';
+
 import { connect } from "react-redux"
 
 import { changeInputName, changeInputTitle, changeInputContent, submitName, submitTitle, submitContent } from '../actions/userActions'
@@ -46,10 +48,24 @@ export default class Welcome extends React.Component {
     this.props.dispatch(changeInputName(event.target.value))
   }
 
-  submitName() {
+  submitName(e) {
     this.props.dispatch(submitTitle())
     this.props.dispatch(submitContent())
    // this.props.dispatch(submitName())
+    e.preventDefault();
+        let currentState = {
+          title: this.props.inputTitle,
+          content: this.props.inputContent,
+          comment: "not good."
+        }
+        axios.post('/dataPost/dataPosts', currentState)
+        .then(res => {
+           if(res.data.success) {
+               //return alert('posted successfully');
+               return console.log("posted succcessfully")
+           }
+           
+        })
   }
 
 
