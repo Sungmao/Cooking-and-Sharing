@@ -9,6 +9,9 @@ const postSchema = new Schema({
     content: {
     type: String
     },
+    comments: {
+      type: [String]
+    },
     
 });
 
