@@ -32,9 +32,11 @@ export default class Welcome extends React.Component {
     this.handleContentChange = this.handleContentChange.bind(this)
     this.submitName = this.submitName.bind(this)
 
-    this.dataDb = {
-            posts:[],
+    this.state = {
+            title:[],
+            content:[],
             comments: [],
+            posts: []
             // date: []
         }
 
@@ -43,16 +45,12 @@ export default class Welcome extends React.Component {
 
 
 
-  componentDidMount() {
+  componentDidMount(historyDb) {
      axios.get('/dataGet/dataGets').then((res) => {
-        // title: this.props.inputTitle,
-        // content: this.props.inputContent,
-        // comment: "DidMount."
-        // this.setState({posts: resDb.data.posts});
-        console.log("-------------------")
-        console.log("mount check:")
-        console.log(res.data)
-        console.log("-------------------")
+ 
+        console.log(res.data.posts)
+        this.setState({posts: res.data.posts})
+        
     });
     }
     
@@ -86,6 +84,13 @@ export default class Welcome extends React.Component {
            }
            
         })
+
+        axios.get('/dataGet/dataGets').then((res) => {
+ 
+        console.log(res.data.posts)
+        this.setState({posts: res.data.posts})
+        
+    });
   }
 
 
@@ -99,6 +104,10 @@ export default class Welcome extends React.Component {
                 title={`This is Title ${this.props.newtitle}`}
                 subtitle={`This is content ${this.props.newContent}`}
               />
+
+              <ul>
+                {this.state.posts.map((post) => <li>{post.title}</li>)}
+              </ul>
               
             </Card>
           </Col>
