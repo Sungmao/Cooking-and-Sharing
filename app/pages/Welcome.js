@@ -106,7 +106,8 @@ export default class Welcome extends React.Component {
               />
 
               <ul>
-                {this.state.posts.map((post) => <li>{post.title}</li>)}
+                {this.state.posts.map((post) => <li>{post.title}</li>)} 
+                {this.state.posts.map((post) => <p>{post.content}</p>)}
               </ul>
               
             </Card>

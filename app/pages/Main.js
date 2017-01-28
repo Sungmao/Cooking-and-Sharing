@@ -10,16 +10,20 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin();
 // -----------------------------------------------------------------
 
-// import NavBar from '../components/Navbar'
+import NavBar from '../components/Navbar'
 
 export default class Main extends React.Component {
 
   render() {
     return (
       <MuiThemeProvider>
-        <Container>
-          {this.props.children}
-        </Container>
+        <div>
+          <NavBar />
+          <Container>
+        	 <h2><strong>Reddit!</strong></h2>
+            {this.props.children}
+          </Container>
+        </div>
       </MuiThemeProvider>
     );
   }
