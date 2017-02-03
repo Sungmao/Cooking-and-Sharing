@@ -24,12 +24,12 @@ export default class NavBar extends React.Component {
           <Link to={'/'}>
             <MenuItem onClick={this.handleToggle}>Welcome</MenuItem>
           </Link>
-          <Link to={'/'}>
-            <MenuItem onClick={this.handleToggle}>Second Page</MenuItem>
+          <Link to={'inputPage'}>
+            <MenuItem onClick={this.handleToggle}>Input Page</MenuItem>
           </Link>
         </Drawer>
         <AppBar
-          title="Welcome Students!!!"
+          title="Manus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={this.handleToggle}
         />

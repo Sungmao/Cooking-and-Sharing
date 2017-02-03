@@ -10,6 +10,8 @@
   "author": "Allen Wu",
   "license": "ISC",
   "dependencies": {
+    "apeman-react-basic": "^10.3.3",
+    "apeman-react-jumbotron": "^3.0.5",
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
@@ -17,6 +19,7 @@
     "mongoose": "^4.7.7",
     "path": "^0.12.7",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-grid-system": "git+https://github.com/zoover/react-grid-system.git",
     "react-redux": "^5.0.2",

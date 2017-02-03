@@ -15,14 +15,28 @@ import NavBar from '../components/Navbar'
 export default class Main extends React.Component {
 
   render() {
+
+    const style = {
+      background: "grey"
+    }
+
+    // return (
+    //   <MuiThemeProvider>
+    //     <div>
+    //       <NavBar />
+    //       <Container>
+    //         {this.props.children}
+    //       </Container>
+    //     </div>
+    //   </MuiThemeProvider>
+    // );
     return (
       <MuiThemeProvider>
         <div>
           <NavBar />
-          <Container>
-        	 <h2><strong>Reddit!</strong></h2>
+          <div style={style}>
             {this.props.children}
-          </Container>
+          </div>
         </div>
       </MuiThemeProvider>
     );
