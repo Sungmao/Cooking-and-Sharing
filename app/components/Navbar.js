@@ -27,6 +27,9 @@ export default class NavBar extends React.Component {
           <Link to={'inputPage'}>
             <MenuItem onClick={this.handleToggle}>Input Page</MenuItem>
           </Link>
+          <Link to={'Display'}>
+            <MenuItem onClick={this.handleToggle}>Display Page</MenuItem>
+          </Link>
         </Drawer>
         <AppBar
           title="Manus"
