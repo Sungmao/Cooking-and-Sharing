@@ -24,26 +24,52 @@ import FlatButton from 'material-ui/FlatButton';
 
     const style = {
           // height: 300,
-           width: 2000,
+           // width: 2000,
           //maxWidth: 2000,
-          float: "auto",
-          marginLeft: 1,
-          marginTop: 50,
+          // float: "auto",
+          // marginLeft: 1,
+          // marginTop: 50,
           color: 'red'
     };
 
     const imgStyle = {
-      backgroundColor: "blue"
+        padding: 10,
+        margin: 10,
+        backgroundColor: "#ffde00",
+        color: "#333",
+        display: "inline-block",
+        fontFamily: "monospace",
+        fontSize: "60",
+        textAlign: "center"
 
 
-    }  
+    };
+
+    const overlayTitleStyle = {
+
+      fontSize: "80px",
+      textAlign: "center"
+
+    }
+
+    const overlaySubTitleStyle = {
+
+      fontSize: "50px",
+      textAlign: "center",
+      paddingTop: "50px"
+
+    }
 
     return (
 
       <div>
           <Card>
             <CardMedia
-              overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle"/>}
+               overlay={<CardTitle titleStyle={overlayTitleStyle} title="Let's eat" subtitleStyle={overlaySubTitleStyle} subtitle="Discover home cooking near your area"/>}
+               
+               //overlayContainerStyle={imgStyle}
+               // overlayContentStyle={imgStyle}
+               // overlayStyle= {overlayStyle}
             >
               <img src="./img/eating.jpg"/>
             </CardMedia>

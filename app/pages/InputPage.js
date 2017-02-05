@@ -7,9 +7,14 @@ import { changeInputName, changeInputTitle, changeInputContent, submitName, subm
 
 import { Row, Col } from 'react-grid-system'
 
+import { Link } from 'react-router'
+
 import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
+
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 @connect((store) => {
   return {
@@ -95,24 +100,33 @@ export default class InputPage extends React.Component {
 
 
   render() {
-    
+
+    const styles = {
+      customWidth: {
+        width: 150,
+      },
+    };
+        
 
     return (
       <div>
         <Row>
           <Col md={8} offset={{ md: 2 }}>
+
+
+            {this.state.posts.map((post) => 
             <Card>
               <CardTitle
-                title={`This is Title ${this.props.newtitle}`}
-                subtitle={`This is content ${this.props.newContent}`}
-              />
+                title={post.title}
+                subtitle={`This is content ${post.content}`}
 
-              <ul>
-                {this.state.posts.map((post) => <li>{post.title}</li>)} 
-                {this.state.posts.map((post) => <p>{post.content}</p>)}
-              </ul>
+              />
               
-            </Card>
+            </Card>            
+
+            )}
+
+
           </Col>
         </Row>
         <Row>
@@ -125,22 +139,64 @@ export default class InputPage extends React.Component {
                   onChange={this.handleTitleChange}
                   value={this.props.inputTitle}
                 />
+
+                <br />
+
+                <SelectField
+                  floatingLabelText="Frequency"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                >
+                  <MenuItem value={1} primaryText="Never" />
+                  <MenuItem value={2} primaryText="Every Night" />
+                  <MenuItem value={3} primaryText="Weeknights" />
+                  <MenuItem value={4} primaryText="Weekends" />
+                  <MenuItem value={5} primaryText="Weekly" />
+                </SelectField>
+                <br />
+
                 <TextField
                   type='text'
-                  fullWidth={true}
-                  hintText='Contents'
-                  multiLine={true}
-                  rows={5}
+                
+                  hintText='City'
+                  // onChange={this.handleTitleChange}
+                  // value={this.props.inputTitle}
+                />
+
+                 <br />
+
+
+
+                <TextField
+                  type='text'
+                 // fullWidth={true}
+                  hintText='Description'
+                  // multiLine={true}
+                  // rows={5}
                   onChange={this.handleContentChange}
                   value={this.props.inputContent}
                 />
               </CardText>
               <CardActions>
+              
+              <Link to={'Display'}>
                 <RaisedButton
+                  // href="Display"
                   label="Submit"
                   primary={true}
-                  onClick={this.submitName}
+                  
+                 onClick={this.submitName}
+
+
                 />
+
+              </Link>
+
+              
+
+                <Link to={'Display'}>
+                  <p>Display Page</p>
+                </Link>
               </CardActions>
             </Card>
           </Col>
