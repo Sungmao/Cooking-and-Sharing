@@ -60,6 +60,20 @@ import FlatButton from 'material-ui/FlatButton';
 
     }
 
+    const buttonTitle = {
+      color: "black",
+      textAlign: "center",
+      fontSize: "44px",
+      paddingTop: "50px"
+    }
+
+    const buttonP = {
+      color: "#818a92",
+      textAlign: "center",
+      fontSize: "25px"
+
+    }
+
     return (
 
       <div>
@@ -74,6 +88,27 @@ import FlatButton from 'material-ui/FlatButton';
               <img src="./img/eating.jpg"/>
             </CardMedia>
           </Card>
+
+         
+          <div>
+
+            <h2 style={buttonTitle}>Your cooking and sharing App</h2>
+            <br />
+            <p style={buttonP}>Find a home cook making gourmet to simple meals near you.</p>
+            <p style={buttonP}>Find a day and time that works for you and pay via Meal Sharing.</p>
+            <p style={buttonP}>Join the cook in their home and meet new people.</p>
+          
+
+            <img src="./img/indexIMG.png"/>
+
+          </div>
+          
+
+
+
+       
+
+
       </div>
 
 

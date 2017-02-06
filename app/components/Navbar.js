@@ -22,7 +22,8 @@ export default class NavBar extends React.Component {
     const barStyle = {
 
       // backgroundColor: "#575c61"
-      backgroundColor: "#a3a81f"
+      // backgroundColor: "#a3a81f"
+      backgroundColor: "#405b74"
 
     }
 
@@ -43,14 +44,14 @@ export default class NavBar extends React.Component {
             <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Welcome</MenuItem>
           </Link>
           <Link to={'inputPage'}>
-            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Create a Meal</MenuItem>
+            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Post a Meal</MenuItem>
           </Link>
           <Link to={'Display'}>
             <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Browse Meals</MenuItem>
           </Link>
         </Drawer>
         <AppBar
-          title="Manus"
+          title="Menus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={this.handleToggle}
           style={barStyle}

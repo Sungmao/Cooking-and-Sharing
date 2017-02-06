@@ -9,12 +9,14 @@ import { Row, Col } from 'react-grid-system'
 
 import { Link } from 'react-router'
 
-import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card'
+import { Card, CardTitle, CardText, CardActions, CardHeader } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+
+import AppBar from 'material-ui/AppBar'
 
 @connect((store) => {
   return {
@@ -101,106 +103,133 @@ export default class InputPage extends React.Component {
 
   render() {
 
-    const styles = {
-      customWidth: {
-        width: 150,
-      },
+    const titleStyle = {
+
+      marginTop: "20px",
+      marginBottom: "20px"
+     
     };
+
+    const titleStyleText = {
+      fontSize: "50px",
+      textAlign: "center"
+    }
         
 
     return (
+
       <div>
-        <Row>
-          <Col md={8} offset={{ md: 2 }}>
 
+        <div>
 
-            {this.state.posts.map((post) => 
-            <Card>
-              <CardTitle
-                title={post.title}
-                subtitle={`This is content ${post.content}`}
-
-              />
-              
-            </Card>            
-
-            )}
-
-
-          </Col>
-        </Row>
-        <Row>
-          <Col md={8} offset={{ md: 2 }}>
-            <Card>
-              <CardText>
-                <TextField
-                  type='text'
-                  hintText='Title'
-                  onChange={this.handleTitleChange}
-                  value={this.props.inputTitle}
-                />
-
-                <br />
-
-                <SelectField
-                  floatingLabelText="Frequency"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                >
-                  <MenuItem value={1} primaryText="Never" />
-                  <MenuItem value={2} primaryText="Every Night" />
-                  <MenuItem value={3} primaryText="Weeknights" />
-                  <MenuItem value={4} primaryText="Weekends" />
-                  <MenuItem value={5} primaryText="Weekly" />
-                </SelectField>
-                <br />
-
-                <TextField
-                  type='text'
+          <Row>
+            <Col md={8} offset={{ md: 2 }}>
+          
                 
-                  hintText='City'
-                  // onChange={this.handleTitleChange}
-                  // value={this.props.inputTitle}
-                />
+           
 
-                 <br />
-
-
-
-                <TextField
-                  type='text'
-                 // fullWidth={true}
-                  hintText='Description'
-                  // multiLine={true}
-                  // rows={5}
-                  onChange={this.handleContentChange}
-                  value={this.props.inputContent}
-                />
-              </CardText>
-              <CardActions>
-              
-              <Link to={'Display'}>
-                <RaisedButton
-                  // href="Display"
-                  label="Submit"
-                  primary={true}
+              <Card style= {titleStyle}>
+                <CardHeader
+                  title="Be a Host"
+                  titleStyle= {titleStyleText}
+                  subtitle="Let's get started by creating a meal"
                   
-                 onClick={this.submitName}
+                />
+                <CardText>
+                  <TextField
+                    type='text'
+                    hintText='Title'
+                    onChange={this.handleTitleChange}
+                    value={this.props.inputTitle}
+                    
+                  />
 
+                  <br />
+
+                  <SelectField
+                    floatingLabelText="Meal type"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                  >
+                    <MenuItem value={1} primaryText="Deliver" />
+                    <MenuItem value={2} primaryText="Pick-Up" />
+                    <MenuItem value={3} primaryText="Brunch" />
+                    <MenuItem value={4} primaryText="Lunch" />
+                    <MenuItem value={5} primaryText="Dinner" />
+                  </SelectField>
+                  <br />
+
+                  <TextField
+                    type='text'
+                  
+                    hintText='City'
+                    // onChange={this.handleTitleChange}
+                    // value={this.props.inputTitle}
+                  />
+
+                   <br />
+
+
+
+                  <TextField
+                    type='text'
+                   // fullWidth={true}
+                    hintText='Description'
+                    // multiLine={true}
+                    // rows={5}
+                    onChange={this.handleContentChange}
+                    value={this.props.inputContent}
+                  />
+                </CardText>
+                <CardActions>
+                
+                <Link to={'Display'}>
+                  <RaisedButton
+                    // href="Display"
+                    label="Submit"
+                    primary={true}
+                    
+                   onClick={this.submitName}
+
+
+                  />
+
+                </Link>
+
+                
+
+                  <Link to={'Display'}>
+                    <p>Display Page</p>
+                  </Link>
+                </CardActions>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+
+        <div>
+
+          <Row>
+            <Col md={8} offset={{ md: 2 }}>
+
+
+              {this.state.posts.map((post) => 
+              <Card>
+                <CardTitle
+                  title={post.title}
+                  subtitle={`This is content ${post.content}`}
 
                 />
+                
+              </Card>            
 
-              </Link>
+              )}
 
-              
 
-                <Link to={'Display'}>
-                  <p>Display Page</p>
-                </Link>
-              </CardActions>
-            </Card>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </div>
+
       </div>
     );
   }
