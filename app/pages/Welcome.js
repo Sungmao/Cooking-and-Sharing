@@ -24,30 +24,91 @@ import FlatButton from 'material-ui/FlatButton';
 
     const style = {
           // height: 300,
-           width: 2000,
+           // width: 2000,
           //maxWidth: 2000,
-          float: "auto",
-          marginLeft: 1,
-          marginTop: 50,
+          // float: "auto",
+          // marginLeft: 1,
+          // marginTop: 50,
           color: 'red'
     };
 
     const imgStyle = {
-      backgroundColor: "blue"
+        padding: 10,
+        margin: 10,
+        backgroundColor: "#ffde00",
+        color: "#333",
+        display: "inline-block",
+        fontFamily: "monospace",
+        fontSize: "60",
+        textAlign: "center"
 
 
-    }  
+    };
+
+    const overlayTitleStyle = {
+
+      fontSize: "80px",
+      textAlign: "center"
+
+    }
+
+    const overlaySubTitleStyle = {
+
+      fontSize: "50px",
+      textAlign: "center",
+      paddingTop: "50px"
+
+    }
+
+    const buttonTitle = {
+      color: "black",
+      textAlign: "center",
+      fontSize: "44px",
+      paddingTop: "50px"
+    }
+
+    const buttonP = {
+      color: "#818a92",
+      textAlign: "center",
+      fontSize: "25px"
+
+    }
 
     return (
 
       <div>
           <Card>
             <CardMedia
-              overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle"/>}
+               overlay={<CardTitle titleStyle={overlayTitleStyle} title="Let's eat" subtitleStyle={overlaySubTitleStyle} subtitle="Discover home cooking near your area"/>}
+               
+               //overlayContainerStyle={imgStyle}
+               // overlayContentStyle={imgStyle}
+               // overlayStyle= {overlayStyle}
             >
               <img src="./img/eating.jpg"/>
             </CardMedia>
           </Card>
+
+         
+          <div>
+
+            <h2 style={buttonTitle}>Your cooking and sharing App</h2>
+            <br />
+            <p style={buttonP}>Find a home cook making gourmet to simple meals near you.</p>
+            <p style={buttonP}>Find a day and time that works for you and pay via Meal Sharing.</p>
+            <p style={buttonP}>Join the cook in their home and meet new people.</p>
+          
+
+            <img src="./img/indexIMG.png"/>
+
+          </div>
+          
+
+
+
+       
+
+
       </div>
 
 

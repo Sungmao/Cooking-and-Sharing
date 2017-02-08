@@ -17,7 +17,7 @@ export default class Main extends React.Component {
   render() {
 
     const style = {
-      background: "grey"
+      // background: "grey"
     }
 
     // return (

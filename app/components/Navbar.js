@@ -18,20 +18,44 @@ export default class NavBar extends React.Component {
   }
 
   render() {
+
+    const barStyle = {
+
+      // backgroundColor: "#575c61"
+      // backgroundColor: "#a3a81f"
+      backgroundColor: "#405b74"
+
+    }
+
+    const barTitleStyle = {
+      fontSize: "35px",
+      color: "rgba(255, 255, 255, 0.541176)"
+    }
+
+    const MenuItemStyle = {
+      fontSize: "20px"
+    }
+
+
     return (
       <div>
-        <Drawer open={this.state.open}>
+        <Drawer open={this.state.open} width={180}>
           <Link to={'/'}>
-            <MenuItem onClick={this.handleToggle}>Welcome</MenuItem>
+            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Welcome</MenuItem>
           </Link>
           <Link to={'inputPage'}>
-            <MenuItem onClick={this.handleToggle}>Input Page</MenuItem>
+            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Post a Meal</MenuItem>
+          </Link>
+          <Link to={'Display'}>
+            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Browse Meals</MenuItem>
           </Link>
         </Drawer>
         <AppBar
-          title="Manus"
+          title="Menus"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={this.handleToggle}
+          style={barStyle}
+          titleStyle={barTitleStyle}
         />
       </div>
     );
