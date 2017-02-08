@@ -30,9 +30,9 @@ db.once("open", function() {
 });
 
 // Routes
-// app.get(`*`, function(req, res) {
-//   res.sendFile('public/index.html', { root: __dirname });
-// });
+app.get(`*`, function(req, res) {
+  res.sendFile('public/index.html', { root: __dirname });
+});
 
 // Connection to PORT
 app.listen(PORT, function() {

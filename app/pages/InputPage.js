@@ -102,6 +102,8 @@ export default class InputPage extends React.Component {
 
 
   render() {
+    // state.postIndex
+    //let posts = posts but only 6 
 
     const titleStyle = {
 
@@ -113,6 +115,11 @@ export default class InputPage extends React.Component {
     const titleStyleText = {
       fontSize: "50px",
       textAlign: "center"
+    }
+
+    const postStyle = {
+      marginTop: "20px",
+      marginBottom: "20px"
     }
         
 
@@ -214,7 +221,7 @@ export default class InputPage extends React.Component {
 
 
               {this.state.posts.map((post) => 
-              <Card>
+              <Card style={postStyle}>
                 <CardTitle
                   title={post.title}
                   subtitle={`This is content ${post.content}`}

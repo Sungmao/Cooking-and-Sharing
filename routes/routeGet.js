@@ -12,7 +12,7 @@ router.get('/dataGets', (req, res) => {
         else {
         res.json({posts:post})
         }
-    })
+    }).sort({ _id: -1 }).limit(20)
 });
 
 router.get('/:subreddId', (req,res) => {
