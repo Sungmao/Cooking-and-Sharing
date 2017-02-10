@@ -9,7 +9,7 @@ import { Row, Col } from 'react-grid-system'
 
 import { Link } from 'react-router'
 
-import { Card, CardTitle, CardText, CardActions, CardHeader } from 'material-ui/Card'
+import { Card, CardTitle, CardText, CardActions, CardHeader, CardMedia } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
@@ -137,9 +137,13 @@ export default class InputPage extends React.Component {
               <Card style={postStyle}>
                 <CardTitle
                   title={post.title}
-                  subtitle={`This is content ${post.content}`}
-
+                  subtitle={post.content}
                 />
+                <CardMedia
+                  overlay={<CardTitle title={post.title} subtitle={post.content} />}
+                >
+                  <img src="./img/grid-list/water-plant-821293_640.jpg" />
+                </CardMedia>
                 
               </Card>            
 

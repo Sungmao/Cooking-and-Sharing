@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const UserPosts = require('../models/post');
 const mongoose = require( 'mongoose' );
+var multer = require('multer');
+var fs = require('fs');
 
 router.post('/dataPosts', (req, res) => {
     UserPosts.create({
         title: req.body.title,
         content: req.body.content,
+        image: fs.readFileSync(req.body.image).toString('base64'),
+        // image.contentType = req.file.mimetype,
         comment: ""
     }).then(() => {
         res.json({success:true});
