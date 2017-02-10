@@ -12,6 +12,7 @@ const postSchema = new Schema({
     comments: {
       type: [String]
     },
+    image: { data: Buffer, contentType: String }
     
 });
 
