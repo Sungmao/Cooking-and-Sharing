@@ -26,6 +26,23 @@ export function changeInputImage(newImage) {
   }
 }
 
+
+export function changeInputCity(newCity) {
+  return {
+    type: 'CHANGE_INPUT_CITY',
+    payload: newCity
+  }
+}
+
+
+export function changeInputPrice(newPrice) {
+  return {
+    type: 'CHANGE_INPUT_PRICE',
+    payload: newPrice
+  }
+}
+
+
 // export function submitName() {
 //   return {
 //     type: 'CHANGE_USER'
@@ -50,6 +67,26 @@ export function submitImage() {
     type: 'CHANGE_IMAGE'
   }
 }
+
+export function submitCity() {
+  return {
+    type: 'CHANGE_CITY'
+  }
+}
+
+export function submitPrice() {
+  return {
+    type: 'CHANGE_PRICE'
+  }
+}
+
+
+
+
+
+
+
+
 
 
 

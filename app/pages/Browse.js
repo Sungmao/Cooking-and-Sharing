@@ -18,31 +18,34 @@ import MenuItem from 'material-ui/MenuItem';
 
 import AppBar from 'material-ui/AppBar'
 
-@connect((store) => {
-  return {
-    user: store.user.user,
-    inputName: store.user.inputName,
-    newtitle: store.user.newtitle,
-    inputTitle: store.user.inputTitle,
-    newContent: store.user.newContent,
-    inputContent: store.user.inputContent
-  };
-})
+// @connect((store) => {
+//   return {
+//     user: store.user.user,
+//     inputName: store.user.inputName,
+//     newtitle: store.user.newtitle,
+//     inputTitle: store.user.inputTitle,
+//     newContent: store.user.newContent,
+//     inputContent: store.user.inputContent
+//   };
+// })
 export default class InputPage extends React.Component {
 
 
   constructor() {
     super()
 
-    this.handleTitleChange = this.handleTitleChange.bind(this)
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleContentChange = this.handleContentChange.bind(this)
-    this.submitName = this.submitName.bind(this)
+    // this.handleTitleChange = this.handleTitleChange.bind(this)
+    // this.handleNameChange = this.handleNameChange.bind(this)
+    // this.handleContentChange = this.handleContentChange.bind(this)
+    // this.submitName = this.submitName.bind(this)
 
     this.state = {
             title:[],
             content:[],
             comments: [],
+            image: [],
+            city:[],
+            price:[],
             posts: []
             // date: []
         }
@@ -61,44 +64,44 @@ export default class InputPage extends React.Component {
     });
     }
     
-  handleTitleChange(event) {
-    this.props.dispatch(changeInputTitle(event.target.value))
-  }
+  // handleTitleChange(event) {
+  //   this.props.dispatch(changeInputTitle(event.target.value))
+  // }
 
-  handleContentChange(event) {
-    this.props.dispatch(changeInputContent(event.target.value))
-  }
+  // handleContentChange(event) {
+  //   this.props.dispatch(changeInputContent(event.target.value))
+  // }
 
-  handleNameChange(event) {
-    this.props.dispatch(changeInputName(event.target.value))
-  }
+  // handleNameChange(event) {
+  //   this.props.dispatch(changeInputName(event.target.value))
+  // }
 
-  submitName(e) {
-    this.props.dispatch(submitTitle())
-    this.props.dispatch(submitContent())
-   // this.props.dispatch(submitName())
-    e.preventDefault();
-        let currentState = {
-          title: this.props.inputTitle,
-          content: this.props.inputContent,
-          comment: "not good."
-        }
-        axios.post('/dataPost/dataPosts', currentState)
-        .then(res => {
-           if(res.data.success) {
-               //return alert('posted successfully');
-               return console.log("posted succcessfully")
-           }
+  // submitName(e) {
+  //   this.props.dispatch(submitTitle())
+  //   this.props.dispatch(submitContent())
+  //  // this.props.dispatch(submitName())
+  //   e.preventDefault();
+  //       let currentState = {
+  //         title: this.props.inputTitle,
+  //         content: this.props.inputContent,
+  //         comment: "not good."
+  //       }
+  //       axios.post('/dataPost/dataPosts', currentState)
+  //       .then(res => {
+  //          if(res.data.success) {
+  //              //return alert('posted successfully');
+  //              return console.log("posted succcessfully")
+  //          }
            
-        })
+  //       })
 
-        axios.get('/dataGet/dataGets').then((res) => {
+  //       axios.get('/dataGet/dataGets').then((res) => {
  
-        console.log(res.data.posts)
-        this.setState({posts: res.data.posts})
+  //       console.log(res.data.posts)
+  //       this.setState({posts: res.data.posts})
         
-    });
-  }
+  //   });
+  // }
 
 
   render() {
@@ -142,7 +145,7 @@ export default class InputPage extends React.Component {
                 <CardMedia
                   overlay={<CardTitle title={post.title} subtitle={post.content} />}
                 >
-                  <img src="./img/grid-list/water-plant-821293_640.jpg" />
+                  <img src={post.image} />
                 </CardMedia>
                 
               </Card>            

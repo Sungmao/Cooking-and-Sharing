@@ -6,7 +6,11 @@ export default function reducer(state={
     newContent: '',
     inputContent: '',
     newImage: '',
-    inputImage: ''
+    inputImage: '',
+    newCity: '',
+    inputCity: '',
+    newPrice: '',
+    inputPrice: ''
   }, action) {
 
     switch (action.type) {
@@ -26,6 +30,14 @@ export default function reducer(state={
         return {...state, newImage: state.inputImage, inputImage: ''}
       case 'CHANGE_INPUT_IMAGE':
         return {...state, inputImage: action.payload}
+      case 'CHANGE_CITY':
+        return {...state, newCity: state.inputCity, inputCity: ''}
+      case 'CHANGE_INPUT_CITY':
+        return {...state, inputCity: action.payload}
+      case 'CHANGE_PRICE':
+        return {...state, newPrice: state.inputPrice, inputPrice: ''}
+      case 'CHANGE_INPUT_PRICE':
+        return {...state, inputPrice: action.payload}
 
       default:
         return state;

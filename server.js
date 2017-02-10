@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/dataPost', dataPosts);
 app.use('/dataGet', dataGets);
 
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/cooking_1' );
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/cooking_2' );
 const db = mongoose.connection;
 db.on("error", function(error) {
   console.log("Mongoose Error: ", error);

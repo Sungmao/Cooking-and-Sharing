@@ -4,15 +4,26 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
     
     title: {
-      type: String
+        type: String
     },
     content: {
-    type: String
+        type: String
     },
     comments: {
-      type: [String]
+        type: [String]
     },
-    image: { data: Buffer, contentType: String }
+    // image: { 
+    //     data: Buffer, contentType: String 
+    // },
+    image: { 
+        type: String
+    },
+    city: {
+        type: String
+    },
+    price: {
+        type: String
+    },
     
 });
 
