@@ -46,8 +46,11 @@ export default class NavBar extends React.Component {
           <Link to={'inputPage'}>
             <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Post a Meal</MenuItem>
           </Link>
-          <Link to={'Display'}>
+          <Link to={'Browse'}>
             <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Browse Meals</MenuItem>
+          </Link>
+          <Link to={'Display'}>
+            <MenuItem style={MenuItemStyle} onClick={this.handleToggle}>Display Test</MenuItem>
           </Link>
         </Drawer>
         <AppBar
