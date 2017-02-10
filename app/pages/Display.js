@@ -17,10 +17,12 @@ export default class Display extends React.Component {
             title:[],
             content:[],
             comments: [],
+            image: [],
+            city:[],
+            price:[],
             posts: []
             // date: []
         }
-
 
   }
 
@@ -106,20 +108,20 @@ const styles = {
 
         <div style={styles.root}>
           <GridList
-            cellHeight={180}
+            cellHeight={280}
             style={styles.gridList}
-            cols={3}
-           padding={50}
+            cols={2}
+           //padding={50}
           >
-            <Subheader>December</Subheader>
+            <Subheader>Featured Meals</Subheader>
             {this.state.posts.map((post) => (
               <GridTile
                 key={post.title}
                 title={post.title}
-                subtitle={<span>by <b>{post.content}</b></span>}
+                subtitle={<span> <b>{post.city}</b> $ {post.price}</span>}
                 actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
               >
-                <img src="./img/grid-list/water-plant-821293_640.jpg" />
+                <img src={post.image} />
               </GridTile>
             ))}
           </GridList>

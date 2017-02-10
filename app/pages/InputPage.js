@@ -135,7 +135,7 @@ export default class InputPage extends React.Component {
         console.log(res.data.posts)
         this.setState({posts: res.data.posts})
 
-        this.props.router.push('/Browse')
+        this.props.router.push('/Display')
 
 
         
@@ -155,19 +155,29 @@ export default class InputPage extends React.Component {
     const titleStyle = {
 
       marginTop: "20px",
-      marginBottom: "20px"
+      marginBottom: "20px",
+      textAlign: "center"
      
     };
 
+    const cardHeaderStyle = {
+
+      paddingRight: "100px"
+
+    }
+
     const titleStyleText = {
-      fontSize: "50px",
-      textAlign: "center"
+      fontSize: "40px",
+     // textAlign: "center"
+      // paddingRight: "100px"
+      
+
     }
 
     const subtitleStyleText = {
 
-      fontSize: "30px",
-      textAlign: "center"
+      fontSize: "20px"
+     // textAlign: "center"
      
     };
 
@@ -201,35 +211,20 @@ export default class InputPage extends React.Component {
         <div>
 
           <Row>
-            <Col md={6} offset={{ md: 3 }}>
+            <Col md={4} offset={{ md: 4 }}>
           
                 
            
 
               <Card style= {titleStyle} containerStyle= {cardcontainerStyle}>
                 <CardHeader
-                  title="Be a Host"
+                  title="Be a Host today"
                   titleStyle= {titleStyleText}
                   subtitle="Let's get started by creating a meal"
                   subtitleStyle= {subtitleStyleText}
                   
                 />
                 <CardText>
-
-                  <SelectField
-                    style= {textFieldStyle}
-                    floatingLabelText="Meal type"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                  >
-                    <MenuItem value={1} primaryText="Deliver" />
-                    <MenuItem value={2} primaryText="Pick-Up" />
-                    <MenuItem value={3} primaryText="Brunch" />
-                    <MenuItem value={4} primaryText="Lunch" />
-                    <MenuItem value={5} primaryText="Dinner" />
-                  </SelectField>
-                  
-                  <br />
 
                   <TextField
                     style= {textFieldStyle}
