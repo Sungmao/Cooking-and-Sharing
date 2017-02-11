@@ -5,7 +5,8 @@
   "main": "public/index.html",
   "scripts": {
     "start": "node server",
-    "dev": "webpack -w"
+    "dev": "webpack -w",
+    "postinstall": "webpack"
   },
   "author": "Allen Wu",
   "license": "ISC",
