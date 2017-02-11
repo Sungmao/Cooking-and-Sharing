@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { connect } from "react-redux"
 
-import { changeInputName, changeInputTitle, changeInputContent, changeImage, submitName, submitTitle, submitContent, submitImage } from '../actions/userActions'
+import { changeInputName, changeInputTitle, changeInputContent, changeInputImage, changeInputCity, changeInputPrice, submitName, submitTitle, submitContent, submitImage, submitCity, submitPrice } from '../actions/userActions'
 
 import { Row, Col } from 'react-grid-system'
 
@@ -19,6 +19,12 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 import AppBar from 'material-ui/AppBar';
+import {
+  Step,
+  Stepper,
+  StepButton,
+} from 'material-ui/Stepper';
+import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward';
 
 var FileInput = require('react-file-input');
 
@@ -34,7 +40,11 @@ var FileInput = require('react-file-input');
     newContent: store.user.newContent,
     inputContent: store.user.inputContent,
     newImage: store.user.image,
-    inputImage: store.user.inputImage
+    inputImage: store.user.inputImage,
+    newCity: store.user.city,
+    inputCity: store.user.inputCity,
+    newPrice: store.user.price,
+    inputPrice: store.user.inputPrice
   };
 })
 export default class InputPage extends React.Component {
@@ -47,6 +57,9 @@ export default class InputPage extends React.Component {
  //   this.handleNameChange = this.handleNameChange.bind(this)
     this.handleContentChange = this.handleContentChange.bind(this)
     this.handleImageChange = this.handleImageChange.bind(this)
+    this.handleCityChange = this.handleCityChange.bind(this)
+    this.handlePriceChange = this.handlePriceChange.bind(this)
+
     this.submitName = this.submitName.bind(this)
  //   this.submitImage = this.submitImage.bind(this)
 
@@ -57,23 +70,22 @@ export default class InputPage extends React.Component {
             content:[],
             comments: [],
             image: [],
+            city:[],
+            price:[],
             posts: []
             // date: []
         }
-
-
   }
 
 
-
   componentDidMount(historyDb) {
-     axios.get('/dataGet/dataGets').then((res) => {
+    axios.get('/dataGet/dataGets').then((res) => {
  
         console.log(res.data.posts)
         this.setState({posts: res.data.posts})
         
     });
-    }
+  }
     
   handleTitleChange(event) {
     this.props.dispatch(changeInputTitle(event.target.value))
@@ -87,6 +99,14 @@ export default class InputPage extends React.Component {
     this.props.dispatch(changeInputImage(event.target.value))
   }
 
+  handleCityChange(event) {
+    this.props.dispatch(changeInputCity(event.target.value))
+  }
+
+  handlePriceChange(event) {
+    this.props.dispatch(changeInputPrice(event.target.value))
+  }
+
   // handleNameChange(event) {
   //   this.props.dispatch(changeInputName(event.target.value))
   // }
@@ -95,14 +115,17 @@ export default class InputPage extends React.Component {
     this.props.dispatch(submitTitle())
     this.props.dispatch(submitContent())
     this.props.dispatch(submitImage())
+    this.props.dispatch(submitCity())
+    this.props.dispatch(submitPrice())
    
         e.preventDefault();
 
         let currentState = {
           title: this.props.inputTitle,
           content: this.props.inputContent,
-          image: this.props.image
-          
+          image: this.props.inputImage,
+          city: this.props.inputCity,
+          price: this.props.inputPrice
         }
         axios.post('/dataPost/dataPosts', currentState)
         .then(res => {
@@ -118,7 +141,7 @@ export default class InputPage extends React.Component {
         console.log(res.data.posts)
         this.setState({posts: res.data.posts})
 
-        this.props.router.push('/Browse')
+        this.props.router.push('/Display')
 
 
         
@@ -130,21 +153,49 @@ export default class InputPage extends React.Component {
     // state.postIndex
     //let posts = posts but only 6 
 
+    const cardcontainerStyle = {
+      background: "rgb(250,250,250)"
+
+    }
+
     const titleStyle = {
 
-      marginTop: "20px",
-      marginBottom: "20px"
+      marginTop: "80px",
+      marginBottom: "30px",
+      textAlign: "center"
      
     };
 
-    const titleStyleText = {
-      fontSize: "50px",
-      textAlign: "center"
+    const cardHeaderStyle = {
+
+      paddingRight: "100px"
+
     }
+
+    const titleStyleText = {
+      fontSize: "40px",
+      paddingTop: "30px"
+     
+      
+
+    }
+
+    const subtitleStyleText = {
+
+      fontSize: "24px",
+      color: "#717071",
+      paddingBottom: "30px"
+     // textAlign: "center"
+     
+    };
 
     const postStyle = {
       marginTop: "20px",
       marginBottom: "20px"
+    }
+
+    const textFieldStyle = {
+      fontSize: "20px"
     }
 
     let styles = {
@@ -159,6 +210,11 @@ export default class InputPage extends React.Component {
       opacity: '0'
       }
     }
+
+    const stepStyle = {
+      fontSize: "40px",
+      paddingBottom: "40px"
+    }
         
 
     return (
@@ -168,35 +224,21 @@ export default class InputPage extends React.Component {
         <div>
 
           <Row>
-            <Col md={8} offset={{ md: 2 }}>
+            <Col md={4} offset={{ md: 4 }}>
           
                 
            
 
-              <Card style= {titleStyle}>
-                <CardHeader
-                  title="Be a Host"
-                  titleStyle= {titleStyleText}
-                  subtitle="Let's get started by creating a meal"
-                  
-                />
+              <Card style= {titleStyle} containerStyle= {cardcontainerStyle}>
+
+                <div style= {titleStyleText}>Be a Chef Today</div>
+                <br />
+                <div style= {subtitleStyleText}>Let's get started by creating a meal</div>
+
                 <CardText>
 
-                  <SelectField
-                    floatingLabelText="Meal type"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                  >
-                    <MenuItem value={1} primaryText="Deliver" />
-                    <MenuItem value={2} primaryText="Pick-Up" />
-                    <MenuItem value={3} primaryText="Brunch" />
-                    <MenuItem value={4} primaryText="Lunch" />
-                    <MenuItem value={5} primaryText="Dinner" />
-                  </SelectField>
-                  
-                  <br />
-
                   <TextField
+                    style= {textFieldStyle}
                     type='text'
                     hintText='Meal Title'
                     onChange={this.handleTitleChange}
@@ -207,24 +249,27 @@ export default class InputPage extends React.Component {
                   <br />
                   
                   <TextField
+                    style= {textFieldStyle}
                     type='text'
                     hintText='City'
-                    // onChange={this.handleTitleChange}
-                    // value={this.props.inputTitle}
+                    onChange={this.handleCityChange}
+                    value={this.props.inputCity}
                   />
 
                   <br />
 
                   <TextField
+                    style= {textFieldStyle}
                     type='text'
                     hintText='Price'
-                    // onChange={this.handleTitleChange}
-                    // value={this.props.inputTitle}
+                    onChange={this.handlePriceChange}
+                    value={this.props.inputPrice}
                   />
 
                   <br />
 
                   <TextField
+                    style= {textFieldStyle}
                     type='text'
                    // fullWidth={true}
                     hintText='Description'
@@ -233,6 +278,17 @@ export default class InputPage extends React.Component {
                     onChange={this.handleContentChange}
                     value={this.props.inputContent}
                   />
+
+                  <br />
+
+                  <TextField
+                    style= {textFieldStyle}
+                    type='text'
+                    hintText='Image'
+                    onChange={this.handleImageChange}
+                    value={this.props.inputImage}
+                  />
+
 
                   <br />
 
@@ -258,6 +314,30 @@ export default class InputPage extends React.Component {
             </Col>
           </Row>
         </div>
+
+        <Row style={stepStyle}>
+            <Col md={6} offset={{ md: 3 }}>
+
+              <Stepper style={stepStyle} linear={false} connector={<ArrowForwardIcon />}>
+                <Step>
+                  <StepButton>
+                    Post a meal
+                  </StepButton>
+                </Step>
+                <Step>
+                  <StepButton>
+                    Express yourself
+                  </StepButton>
+                </Step>
+                <Step>
+                  <StepButton>
+                    Get paid
+                  </StepButton>
+                </Step>
+              </Stepper>
+
+            </Col>
+        </Row>
 
         
 

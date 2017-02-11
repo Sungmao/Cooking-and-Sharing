@@ -9,9 +9,15 @@ router.post('/dataPosts', (req, res) => {
     UserPosts.create({
         title: req.body.title,
         content: req.body.content,
-        image: fs.readFileSync(req.body.image).toString('base64'),
+        image: req.body.image,
+        city: req.body.city,
+        price: req.body.price
+
+
+
+        //image: fs.readFileSync(req.file.path).toString('base64'),
         // image.contentType = req.file.mimetype,
-        comment: ""
+        //comment: ""
     }).then(() => {
         res.json({success:true});
     }).catch((err) => {

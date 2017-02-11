@@ -1,6 +1,7 @@
 import React from 'react'
 import { Jumbotron } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { Row, Col } from 'react-grid-system'
 
 
 // import axios from 'axios';
@@ -29,7 +30,7 @@ import FlatButton from 'material-ui/FlatButton';
           // float: "auto",
           // marginLeft: 1,
           // marginTop: 50,
-          color: 'red'
+          //color: 'red'
     };
 
     const imgStyle = {
@@ -97,9 +98,23 @@ import FlatButton from 'material-ui/FlatButton';
             <p style={buttonP}>Find a home cook making gourmet to simple meals near you.</p>
             <p style={buttonP}>Find a day and time that works for you and pay via Meal Sharing.</p>
             <p style={buttonP}>Join the cook in their home and meet new people.</p>
-          
+            <br />
+            <br />
+            
 
-            <img src="./img/indexIMG.png"/>
+            <Card>
+            <CardMedia>
+              <img src="./img/mealSharing.jpg"/>
+            </CardMedia>
+          </Card>
+
+
+
+
+
+
+
+          
 
           </div>
           
