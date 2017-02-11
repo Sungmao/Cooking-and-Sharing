@@ -44,6 +44,8 @@ export default class Display extends React.Component {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
+        //marginBottom: "150px",
+        paddingBottom: "150px"
       },
       gridList: {
         width: 750,
@@ -55,7 +57,7 @@ export default class Display extends React.Component {
     const subheaderStyle = {
       fontSize: '30px',
       textAlign: 'center',
-      paddingTop: '100px'
+      paddingTop: '80px'
       //fontFamily: "Montserrat','Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif"
     }
 

@@ -19,6 +19,12 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 import AppBar from 'material-ui/AppBar';
+import {
+  Step,
+  Stepper,
+  StepButton,
+} from 'material-ui/Stepper';
+import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward';
 
 var FileInput = require('react-file-input');
 
@@ -154,8 +160,8 @@ export default class InputPage extends React.Component {
 
     const titleStyle = {
 
-      marginTop: "20px",
-      marginBottom: "20px",
+      marginTop: "80px",
+      marginBottom: "30px",
       textAlign: "center"
      
     };
@@ -168,15 +174,17 @@ export default class InputPage extends React.Component {
 
     const titleStyleText = {
       fontSize: "40px",
-     // textAlign: "center"
-      // paddingRight: "100px"
+      paddingTop: "30px"
+     
       
 
     }
 
     const subtitleStyleText = {
 
-      fontSize: "20px"
+      fontSize: "24px",
+      color: "#717071",
+      paddingBottom: "30px"
      // textAlign: "center"
      
     };
@@ -202,6 +210,11 @@ export default class InputPage extends React.Component {
       opacity: '0'
       }
     }
+
+    const stepStyle = {
+      fontSize: "40px",
+      paddingBottom: "40px"
+    }
         
 
     return (
@@ -217,13 +230,11 @@ export default class InputPage extends React.Component {
            
 
               <Card style= {titleStyle} containerStyle= {cardcontainerStyle}>
-                <CardHeader
-                  title="Be a Host today"
-                  titleStyle= {titleStyleText}
-                  subtitle="Let's get started by creating a meal"
-                  subtitleStyle= {subtitleStyleText}
-                  
-                />
+
+                <div style= {titleStyleText}>Be a Chef Today</div>
+                <br />
+                <div style= {subtitleStyleText}>Let's get started by creating a meal</div>
+
                 <CardText>
 
                   <TextField
@@ -303,6 +314,30 @@ export default class InputPage extends React.Component {
             </Col>
           </Row>
         </div>
+
+        <Row style={stepStyle}>
+            <Col md={6} offset={{ md: 3 }}>
+
+              <Stepper style={stepStyle} linear={false} connector={<ArrowForwardIcon />}>
+                <Step>
+                  <StepButton>
+                    Post a meal
+                  </StepButton>
+                </Step>
+                <Step>
+                  <StepButton>
+                    Express yourself
+                  </StepButton>
+                </Step>
+                <Step>
+                  <StepButton>
+                    Get paid
+                  </StepButton>
+                </Step>
+              </Stepper>
+
+            </Col>
+        </Row>
 
         
 
