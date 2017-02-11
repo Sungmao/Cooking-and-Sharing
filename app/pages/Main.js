@@ -11,6 +11,7 @@ injectTapEventPlugin();
 // -----------------------------------------------------------------
 
 import NavBar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 export default class Main extends React.Component {
 
@@ -37,6 +38,7 @@ export default class Main extends React.Component {
           <div style={style}>
             {this.props.children}
           </div>
+          <Footer />
         </div>
       </MuiThemeProvider>
     );

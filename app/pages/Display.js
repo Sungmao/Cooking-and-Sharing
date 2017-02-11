@@ -39,73 +39,29 @@ export default class Display extends React.Component {
 
   render() {
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    width: 750,
-    height: 650,
-    overflowY: 'auto',
-  },
-};
+    const styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+      },
+      gridList: {
+        width: 750,
+        height: 1050,
+        overflowY: 'auto',
+      },
+    };
 
-// const tilesData = [
-//   {
-//     img: 'img/grid-list/00-52-29-429_640.jpg',
-//     title: 'Breakfast',
-//     author: 'jill111',
-//     //featured: true,
-//   },
-//   {
-//     img: './img/grid-list/burger-827309_640.jpg',
-//     title: 'Tasty burger',
-//     author: 'pashminu',
-//   },
-//   {
-//     img: './img/grid-list/camera-813814_640.jpg',
-//     title: 'Camera',
-//     author: 'Danson67',
-//   },
-//   {
-//     img: './img/grid-list/morning-819362_640.jpg',
-//     title: 'Morning',
-//     author: 'fancycrave1',
-//     //featured: true,
-//   },
-//   {
-//     img: './img/grid-list/hats-829509_640.jpg',
-//     title: 'Hats',
-//     author: 'Hans',
-//   },
-//   {
-//     img: './img/grid-list/honey-823614_640.jpg',
-//     title: 'Honey',
-//     author: 'fancycravel',
-//   },
-//   {
-//     img: './img/grid-list/vegetables-790022_640.jpg',
-//     title: 'Vegetables',
-//     author: 'jill111',
-//   },
-//   {
-//     img: './img/grid-list/water-plant-821293_640.jpg',
-//     title: 'Water plant',
-//     author: 'BkrmadtyaKarki',
-//   },
-// ];
+    const subheaderStyle = {
+      fontSize: '30px',
+      textAlign: 'center',
+      paddingTop: '100px'
+      //fontFamily: "Montserrat','Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif"
+    }
 
-/**
- * This example demonstrates "featured" tiles, using the `rows` and `cols` props to adjust the size of the tile.
- * The tiles have a customised title, positioned at the top and with a custom gradient `titleBackground`.
- */
     return (
+      
       <div>
-
-        
-
         <div style={styles.root}>
           <GridList
             cellHeight={280}
@@ -113,7 +69,7 @@ const styles = {
             cols={2}
            //padding={50}
           >
-            <Subheader>Featured Meals</Subheader>
+            <Subheader style={subheaderStyle}> Featured Meals </Subheader>
             {this.state.posts.map((post) => (
               <GridTile
                 key={post.title}
